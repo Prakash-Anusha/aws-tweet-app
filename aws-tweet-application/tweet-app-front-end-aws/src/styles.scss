@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1K_9C4jSmP2ieW_8DqDZRmcqZuEuYQtUyaUVMWoUTWuh6nhM3StL934U_9N8daftAd0Y&usqp=CAU'); }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: lightcyan;}
+
+.tweet-list{
+    list-style-type:none;
+}
+
+.btn-blue {
+    background-color: #1A237E;
+    width: 120px;
+    color: #fff;
+    border-radius: 2px
+}
+
+.bg-blue {
+    color: #fff;
+    background-color: #1A237E
+}
+
+
+
+

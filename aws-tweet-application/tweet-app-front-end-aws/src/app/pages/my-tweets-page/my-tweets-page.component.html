@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-6 mt-3 box">
+            <div *ngIf="noTweetsToDisplay" class="row text-center">
+                <h3 class="col-12">No Tweets to display!!</h3>
+              </div>
+            <ul class="tweet-list">
+                <li *ngFor="let tweet of myTweetsList">
+                    <app-tweet-card class="my-tweet" [userId]="tweet.userId" [tweet]="tweet.tweetText"
+                        [tweetDate]="tweet.tweetDate" [tweetTime]="tweet.tweetTime"
+                        [tweetComments]="tweet.comments" [tweetId]="tweet.tweetId"
+                        [enableDelete]="true" [enableEdit]="true">
+                    </app-tweet-card>
+                    <hr>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

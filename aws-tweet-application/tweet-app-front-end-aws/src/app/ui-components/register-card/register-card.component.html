@@ -1,0 +1,118 @@
+<div class="container"> 
+
+    <div class="row mt-5">
+        
+        <div class="col login-box">
+            
+            <mat-card style="text-align: center;">
+
+                <mat-card-title>REGISTER</mat-card-title>
+                        <div *ngIf="showElement"  class=" msg mt-1">
+                            <div  id="alert-dismissible" class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Registered successfully!</strong>
+                            </div>
+                        </div>
+                <form name="registrationForm" [formGroup]="registrationForm" (ngSubmit)="registrationForm.valid && registerNewUser()">
+            
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input class="form-control" name="firstName" type="text" placeholder="Enter first name"
+                            formControlName="firstName" [ngClass]="{'is-invalid':registrationForm.get('firstName').touched
+                            && registrationForm.get('firstName').invalid}" />
+                    </div>
+                    <div style="color: red;" *ngIf="registrationForm.get('firstName').touched
+                    && registrationForm.get('firstName').invalid">
+                        First Name required. It should contain only letters.
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input class="form-control" name="lastName" type="text" placeholder="Enter last name"
+                            formControlName="lastName" [ngClass]="{'is-invalid':registrationForm.get('lastName').touched
+                            && registrationForm.get('lastName').invalid}" />
+                    </div>
+                    <div style="color: red;" *ngIf="registrationForm.get('lastName').touched
+                    && registrationForm.get('lastName').invalid">
+                        Last Name required. It should contain only letters
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="userEmail">Email</label>
+                        <input class="form-control" name="email" type="email" placeholder="Enter email" formControlName="email"
+                            [ngClass]="{'is-invalid':registrationForm.get('email').touched
+                            && registrationForm.get('email').invalid}" />
+                    </div>
+                    <div style="color: red;" *ngIf="registrationForm.get('email').touched
+                    && registrationForm.get('email').invalid">
+                        Email required
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="dateOfBirth">Date of Birth</label>
+                        <input class="form-control" name="dateOfBirth" type="text" placeholder="Enter date of birth"
+                            formControlName="dateOfBirth" [ngClass]="{'is-invalid':registrationForm.get('dateOfBirth').touched
+                            && registrationForm.get('dateOfBirth').invalid}" placeholder="Enter date of birth (dd-mm-yyyy)" />
+                    </div>
+                    <div style="color: red;" *ngIf="registrationForm.get('dateOfBirth').touched
+                    && registrationForm.get('dateOfBirth').invalid">
+                        Date of Birth required. Should be of format dd-mm-yyyy
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="contactNumber">Contact Number</label>
+                        <input class="form-control" name="contactNumber" type="text" placeholder="Enter contact number"
+                            formControlName="contactNumber" [ngClass]="{'is-invalid':registrationForm.get('contactNumber').touched
+                            && registrationForm.get('contactNumber').invalid}" />
+                    </div>
+                    <div style="color: red;" *ngIf="registrationForm.get('contactNumber').touched
+                    && registrationForm.get('contactNumber').invalid">
+                        Contact Number required
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="loginId">Login Id</label>
+                        <input class="form-control" name="loginId" type="text" placeholder="Enter login ID"
+                            formControlName="loginId" [ngClass]="{'is-invalid':registrationForm.get('loginId').touched
+                            && registrationForm.get('loginId').invalid}" />
+                    </div>
+                    <div style="color: red;" *ngIf="registrationForm.get('loginId').touched
+                    && registrationForm.get('loginId').invalid">
+                        loginId required
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" name="password" type="password" placeholder="Enter password"
+                            formControlName="password" [ngClass]="{'is-invalid':registrationForm.get('password').touched
+                            && registrationForm.get('password').invalid}" />
+                    </div>
+                    <div style="color: red;" *ngIf="registrationForm.get('password').touched
+                    && registrationForm.get('password').invalid">
+                        Password required
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input class="form-control" name="confirmPassword" type="password" placeholder="Enter password again"
+                            formControlName="confirmPassword" [ngClass]="{'is-invalid':registrationForm.get('confirmPassword').touched
+                            && registrationForm.get('confirmPassword').invalid}" />
+                    </div>
+                    <div style="color: red;" *ngIf="!registrationForm.get('confirmPassword').touched
+                    && registrationForm.get('confirmPassword').invalid">
+                        Confirm Password is a required field. Either field is not filled or doesn't match with given password.
+                    </div>
+                    
+                    <button type="submit" class="btn btn-blue" [disabled]="!registrationForm.valid">Register</button>
+                    <div class="row mb-4 px-3"> <span class="font-weight-bold">Already a user? <a class="text-primary "  [routerLink]="['/login']">Login</a></span> </div>
+                </form>
+            
+            </mat-card>
+            
+        </div>
+
+    </div>
+
+</div>
+
+
+

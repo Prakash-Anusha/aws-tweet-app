@@ -1,0 +1,24 @@
+.main-box {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.register-box {
+    background-color: rgb(243, 164, 243);
+    min-height: 500px;
+}
+
+.header {
+    background-color: #1A237E;
+    min-height: 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+}

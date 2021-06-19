@@ -1,0 +1,29 @@
+<mat-card>
+    <div *ngIf="showElement"  class=" msg mt-1">
+        <div  id="alert-dismissible" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Tweeted!</strong>
+        </div>
+    </div>
+    <mat-card-header>
+        <div mat-card-avatar class="avatar-image"></div>
+
+        <mat-card-title>{{firstName}} {{lastName}}</mat-card-title>
+
+        <mat-card-subtitle>
+
+        </mat-card-subtitle>
+
+    </mat-card-header>
+
+    <form #postTweetForm="ngForm" (ngSubmit)="postTweet()">
+        <div class="form-group">
+            <label for="postTweetBox"></label>
+            <textarea [(ngModel)]="tweet.tweetText" name="newTweet" class="form-control" id="postTweetBox"placeholder="Should less than 145 charcters!!" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-blue">Post Tweet<i class="ml-2 bi bi-inboxes"></i></button>
+    </form>
+
+
+
+</mat-card>

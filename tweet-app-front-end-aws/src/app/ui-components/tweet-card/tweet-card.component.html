@@ -1,0 +1,82 @@
+<mat-card class="tweet-card">
+    <div *ngIf="showElement" class=" msg mt-1">
+        <div id="alert-dismissible" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Commented!</strong>
+        </div>
+    </div>
+    
+    <div *ngIf="deleteTweetPopup" class=" msg mt-1">
+        <div id="alert-dismissible" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Deleted!</strong>
+        </div>
+    </div>
+    
+    <div *ngIf="updateTweetPopup" class=" msg mt-1">
+        <div id="alert-dismissible" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Updated!</strong>
+        </div>
+    </div>
+    <mat-card-header>
+        <div mat-card-avatar class="avatar-image"></div>
+
+        <mat-card-title>{{userId}}</mat-card-title>
+
+        <mat-card-subtitle>
+            {{tweetDate}} | Posted at {{tweetTime}}
+        </mat-card-subtitle>
+
+    </mat-card-header>
+
+    <mat-card-content>
+        {{tweet}}
+    </mat-card-content>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button (click)="toggleCommentSection()" type="submit" class="btn btn-blue">Comment</button>
+            </div>
+
+            <div class="col">
+                <button *ngIf="enableDelete == true" (click)="deleteTweet(tweetId)" type="submit"
+                    class="btn btn-blue">Delete</button>
+            </div>
+
+            <div class="col">
+                <button *ngIf="enableEdit == true" (click)="toggleEditTweetSection()" type="submit"
+                    class="btn btn-blue">Edit</button>
+            </div>
+        </div>
+
+    </div>
+
+    <form *ngIf="toggleCommentTextBox" #commentTweetForm="ngForm" (ngSubmit)="postTweetComment()">
+        <div class="form-group">
+            <label for="commentTweetBox"></label>
+            <textarea [(ngModel)]="tweetComment.tweetText" name="newTweetComment" class="form-control"
+                id="commentTweetBox" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-blue">Post</button>
+    </form>
+
+    <form *ngIf="toggleEditTweetBox" #editTweetForm="ngForm" (ngSubmit)="editTweet(tweetId)">
+        <div class="form-group">
+            <label for="editTweetBox"></label>
+            <textarea [(ngModel)]="editedTweet.tweetText" name="editedTweet" class="form-control"
+                id="editTweetBox" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-blue">Update Tweet</button>
+    </form>
+
+    <mat-card-content>
+        <ul *ngFor="let comment of tweetComments">
+            <app-tweet-comment-card [firstName]="comment.firstName" [lastName]="comment.lastName"
+            [tweetTime]="comment.tweetTime" [tweetDate]="comment.tweetDate"    
+            [tweetComment]="comment.tweetComment">
+            </app-tweet-comment-card>
+        </ul>
+    </mat-card-content>
+
+</mat-card>
